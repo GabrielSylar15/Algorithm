@@ -17,6 +17,48 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return ParseToListNode(sum)
 }
 
+func AddTwoNumbersV2(l1 *ListNode, l2 *ListNode) *ListNode {
+	result := &ListNode{
+		Val: 0,
+	}
+	flag := false
+	for l1 != nil || l2 != nil {
+		sum := 0
+		if l1 != nil {
+			sum += l1.Val
+			l1 = l1.Next
+		}
+		if l2 != nil {
+			sum += l2.Val
+			l2 = l2.Next
+		}
+		if flag {
+			sum += 1
+		}
+		if sum > 9 {
+			flag = true
+			appendNodeList(sum%10, result)
+		} else {
+			flag = false
+			appendNodeList(sum, result)
+		}
+	}
+	if flag {
+		appendNodeList(1, result)
+	}
+	return result.Next
+}
+
+func appendNodeList(num int, l *ListNode) *ListNode {
+	for l.Next != nil {
+		l = l.Next
+	}
+	l.Next = &ListNode{
+		Val: num,
+	}
+	return l
+}
+
 func ParseToNumber(l *ListNode) (int64, error) {
 	var strNum string
 	for l != nil {

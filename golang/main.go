@@ -31,34 +31,37 @@ func PrintListNode(head *ListNode) {
 }
 
 func main() {
-	l1 := ListNode{
-		Val: 1,
+	//l1 := ListNode{
+	//	Val: 1,
+	//	Next: &ListNode{
+	//		Val: 0,
+	//		Next: &ListNode{
+	//			Val: 0,
+	//			Next: &ListNode{
+	//				Val: 0,
+	//				Next: &ListNode{
+	//					Val: 1,
+	//				},
+	//			},
+	//		},
+	//	},
+	//}
+
+	l2 := ListNode{
+		Val: 9,
 		Next: &ListNode{
-			Val: 0,
+			Val: 9,
 			Next: &ListNode{
-				Val: 0,
+				Val: 9,
 				Next: &ListNode{
-					Val: 0,
-					Next: &ListNode{
-						Val: 1,
-					},
+					Val: 9,
 				},
 			},
 		},
 	}
 
-	l2 := ListNode{
-		Val: 5,
-		Next: &ListNode{
-			Val: 6,
-			Next: &ListNode{
-				Val: 4,
-			},
-		},
-	}
+	arr := []int{9, 9, 9, 9, 9, 9, 9}
 
-	//arr := []int{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
-
-	//head := ArrayToListNode(arr)
-	fmt.Println(ParseToNumber(AddTwoNumbers(&l1, &l2)))
+	head := ArrayToListNode(arr)
+	fmt.Println(ParseToNumber(AddTwoNumbersV2(head, &l2)))
 }
